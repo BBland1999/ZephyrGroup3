@@ -152,7 +152,18 @@ Create a Zephyr virtual environment. (Some of the downloads you will need may no
 
 ### Model Files (Database Access)
 
-1. first one
+1. Saving events to device function (Used by Daily Schedule, Random Reminders and Infant Routine use cases)
+	-Pseudo Code (Would use either python or c for file access)
+	
+	```
+	def saveEvent(time, place, user):
+		file = Append("filename", "w")
+		file.write("Time: " + time)
+		file.write("Place: " + place)
+		file.write("User:" + user + "\n")
+		file.close()
+	```
+
 2. second one
 3. etc
 
