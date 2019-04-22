@@ -146,11 +146,11 @@ Create a Zephyr virtual environment. (Some of the downloads you will need may no
 
 ### User Interface Files
 
-1. User Interface flow to Zephyr (Used by all Use Cases)
+1. User Interface flow to Zephyr (Used by all Use Cases):
  
 ![UserInterfaceFunctionalStub](https://github.com/segFaultCity/ZephyrGroup3/blob/master/UserInterfaceStubbed.png)
 
-### Model Files (Database Access)
+### Model & Other Files (Database/Local Storage Access & More)
 
 1. Saving events to device function (Used by Daily Schedule, Random Reminders and Infant Routine use cases)
 	-Pseudo Code (Would use either python or c for file access)
@@ -166,11 +166,58 @@ Create a Zephyr virtual environment. (Some of the downloads you will need may no
 
 2. second one
 3. etc
+=======
+1. Saving data to localStorage (Used by all Use Cases):
 
+	- Pseudo Code (using javascript)
+	
+	```
+	function saveData() {
+		
+		//Retrieve data input by the user.
+		//Store the data into a JSON object
+		localStorage.setItem(object)
+		
+	}
+	```
+	
+2. Retrieveing saved data (Used by all use cases):
+	
+	```
+	function retrieveData() {
+		
+		var value = storage.getItem(object);
+		var a = object.name
+		etc...
+		
+	}
+	```
+	
+3. Submit button function (Used by all use cases):
+	
+	```
+	function submit() {
+		
+		saveData() //as shown above
+		calculateTime(locationSentFromInput, timeInputByUser) 
+		//write the returned result from "calculateTime" to a C file
+		
+	}	
+	
+	function calculateTime(x, y) {
+		
+		var time //holds time sent to zephyr code and used by hardware to alarm stakeholder 
+		var dTime = grab Google Map information as shows below under Controller Files
+		var pTime = user prefernce time needed
+		time = y - dTime - pTime
+		return time
+		
+	}			
+	```
 
 ### Controller Files (API or other)
 
-1. Google Maps API function: (Used by Daily Schedule and Random Reminders use cases)
+1. Google Maps API function (Used by Daily Schedule and Random Reminders use cases):
 	- Pseudo Code (Would be called using javascript)
 	- Prerequisite: Google API key.
 	
@@ -194,7 +241,7 @@ Create a Zephyr virtual environment. (Some of the downloads you will need may no
 	}  
 	```
 	
-2. Google Calender API function: (Used by Daily Schedule and Random Reminders use cases)
+2. Google Calender API function (Used by Daily Schedule and Random Reminders use cases):
 	- Pseduo Code (Would be called using javascript)
 	- Prerequisite: Google API key.
 	
